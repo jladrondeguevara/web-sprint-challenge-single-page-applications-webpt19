@@ -58,8 +58,35 @@ export default function Pizza () {
                     Onions
                     <input id="greenpepper" type="checkbox"name="greenpepper"/>
                     Green Pepper
+                    <input id="dicedtomatoes" type="checkbox"name="dicedtomatoes"/>
+                    Diced Tomatoes
+                    <input id="blackolives" type="checkbox"name="blackolives"/>
+                    Black Olives
+                    <input id="roastedgarlic" type="checkbox"name="roastedgarlic"/>
+                    Roasted Garlic
+                    <input id="artichoque" type="checkbox"name="artichoque"/>
+                    Artichoque Hearts
+                    <input id="threecheese" type="checkbox"name="threecheese"/>
+                    Three Cheese
+                    <input id="pineapple" type="checkbox"name="pineapple"/>
+                    Pineapple
+                    <input id="extracheese" type="checkbox"name="extracheese"/>
+                    Extra Cheese
                 </label>
+                
+                <label htmlFor="gluten">
+                    Choice of substitute
+                    <input type="checkbox" />
+                    Gluten Free (+$1.00)
+                </label>
+
+                <label htmlFor="specialInstructions">
+                    Special instructions: 
+                    <input id="instructions" type="text" />
+                </label>
+
+                <button>Add to order</button>
             </form>
         </div>
-    )
-}
+    );
+};
