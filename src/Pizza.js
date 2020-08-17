@@ -10,7 +10,22 @@ export default function Pizza () {
         sauce: ""
     });
 
+    const [errors, setErrors] = useState({
+        name: "",
+        size: "",
+        sauce: ""
+    })
+
+    
+
     const [sauce, sauceSelected] = useState("");
+
+    useEffect(() => {
+        formSchema.isValid(pizzaState).then(isFormValid => {
+            setButtonDisabled(!isFormValid)
+        })
+    }, [formSchema]);
+
 
     return (
         <div className="pizza-form">
