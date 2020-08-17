@@ -9,4 +9,15 @@ export default function Pizza () {
         toppings: ""
     });
 
+    return (
+        <div className="pizza-form">
+            <form>
+                <h1>Build your own pizza!</h1>
+                <label htmlFor="name">
+                    Name your pizza!
+                    <input id="name" type="text" name="name"/>
+                </label>
+            </form>
+        </div>
+    )
 }
