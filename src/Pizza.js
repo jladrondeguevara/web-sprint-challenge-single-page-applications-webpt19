@@ -7,7 +7,7 @@ export default function Pizza () {
         name: "",
         size: "",
         toppings: "",
-        sauce: "Original"
+        sauce: ""
     });
 
     const [sauce, sauceSelected] = useState("");
@@ -40,6 +40,24 @@ export default function Pizza () {
                     BBQ Sauce
                     <input id="pizza-sauce-bbq" type="radio"name="spinach" checked={sauce === "spinach"} onClick={() => sauceSelected('spinach')} className="sauceCheck"/>
                     Spinach Alfredo
+                </label>
+
+                <label htmlFor="toppings">
+                    Select at least one topping: 
+                    <input id="pepperoni" type="checkbox"name="pepperoni"/>
+                    Pepperoni
+                    <input id="sausage" type="checkbox"name="sausage"/>
+                    Sausage
+                    <input id="canadianbacon" type="checkbox"name="canadianbacon"/>
+                    Canadian Bacon
+                    <input id="italiansausage" type="checkbox"name="italiansausage"/>
+                    Spicy Italian Sausage
+                    <input id="grilledchicken" type="checkbox"name="grilledchicken"/>
+                    Grilled Chicken
+                    <input id="onions" type="checkbox"name="onions"/>
+                    Onions
+                    <input id="greenpepper" type="checkbox"name="greenpepper"/>
+                    Green Pepper
                 </label>
             </form>
         </div>
