@@ -16,6 +16,16 @@ export default function Pizza () {
         sauce: ""
     })
 
+    const inputChange = event => {
+        event.persist();
+        const newPizzaData = {
+            ...pizzaState,
+            [event.target.name]: event.target.value
+        }
+        validateChange(event)
+        setPizzaState(newPizzaData);
+    };
+
     const validateChange = event => {
         yup.reach(formSchema, event.target.name).validate(event.target.value).then(inputIsValid => {
         setErrors({
@@ -54,7 +64,8 @@ export default function Pizza () {
                 <h1>Build your own pizza!</h1>
                 <label htmlFor="name">
                     Name your pizza: 
-                    <input id="name" type="text" name="name"/>
+                    <input id="name" type="text" name="name" onChange={inputChange} value={pizzaState.name}/>
+                    {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
                 </label>
 
                 <label htmlFor="size">
@@ -79,37 +90,73 @@ export default function Pizza () {
                     Spinach Alfredo
                 </label>
 
-                <label htmlFor="toppings">
+                <label htmlFor="toppings" className="toppingsSection">
                     Select at least one topping: 
                     
-                    <input id="pepperoni" type="checkbox"name="pepperoni"/>
-                    Pepperoni
-                    <input id="sausage" type="checkbox"name="sausage"/>
-                    Sausage
-                    <input id="canadianbacon" type="checkbox"name="canadianbacon"/>
-                    Canadian Bacon
-                    <input id="italiansausage" type="checkbox"name="italiansausage"/>
-                    Spicy Italian Sausage
-                    <input id="grilledchicken" type="checkbox"name="grilledchicken"/>
-                    Grilled Chicken
-                    <input id="onions" type="checkbox"name="onions"/>
-                    Onions
-                    <input id="greenpepper" type="checkbox"name="greenpepper"/>
-                    Green Pepper
-                    <input id="dicedtomatoes" type="checkbox"name="dicedtomatoes"/>
-                    Diced Tomatoes
-                    <input id="blackolives" type="checkbox"name="blackolives"/>
-                    Black Olives
-                    <input id="roastedgarlic" type="checkbox"name="roastedgarlic"/>
-                    Roasted Garlic
-                    <input id="artichoque" type="checkbox"name="artichoque"/>
-                    Artichoque Hearts
-                    <input id="threecheese" type="checkbox"name="threecheese"/>
-                    Three Cheese
-                    <input id="pineapple" type="checkbox"name="pineapple"/>
-                    Pineapple
-                    <input id="extracheese" type="checkbox"name="extracheese"/>
-                    Extra Cheese
+                    <span>
+                        <input id="pepperoni" type="checkbox"name="pepperoni"/>
+                        Pepperoni       
+                    </span>
+                    <span>
+                        <input id="sausage" type="checkbox"name="sausage"/>
+                        Sausage
+                    </span>
+                    <span>
+                        <input id="canadianbacon" type="checkbox"name="canadianbacon"/>
+                        Canadian Bacon
+                    </span>
+
+                    <span>
+                        <input id="italiansausage" type="checkbox"name="italiansausage"/>
+                        Spicy Italian Sausage
+                    </span>
+
+                    <span>
+                        <input id="grilledchicken" type="checkbox"name="grilledchicken"/>
+                        Grilled Chicken
+                    </span>
+
+                    <span>
+                        <input id="onions" type="checkbox"name="onions"/>
+                        Onions
+                    </span>
+
+                    <span>
+                        <input id="greenpepper" type="checkbox"name="greenpepper"/>
+                        Green Pepper
+                    </span>
+                    
+                    <span>
+                        <input id="dicedtomatoes" type="checkbox"name="dicedtomatoes"/>
+                        Diced Tomatoes
+                    </span>
+
+                    <span>
+                        <input id="blackolives" type="checkbox"name="blackolives"/>
+                        Black Olives
+                    </span>
+
+                    <span>
+                        <input id="roastedgarlic" type="checkbox"name="roastedgarlic"/>
+                        Roasted Garlic
+                    </span>
+                    <span>
+                        <input id="artichoque" type="checkbox"name="artichoque"/>
+                        Artichoque Hearts
+                    </span>
+
+                    <span>
+                        <input id="threecheese" type="checkbox"name="threecheese"/>
+                        Three Cheese
+                    </span>
+                    <span>
+                        <input id="pineapple" type="checkbox"name="pineapple"/>
+                        Pineapple
+                    </span>
+                    <span>
+                        <input id="extracheese" type="checkbox"name="extracheese"/>
+                        Extra Cheese
+                    </span>
                 </label>
                 
                 <label htmlFor="gluten">
@@ -123,9 +170,9 @@ export default function Pizza () {
                     <input id="instructions" type="text" />
                 </label>
 
-                
             </form>
-            <button>Add to order</button>
+            <br></br>
+            <span><button>Add to order</button></span>
         </div>
     );
 };

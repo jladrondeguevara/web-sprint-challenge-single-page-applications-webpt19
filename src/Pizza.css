@@ -8,6 +8,18 @@ label{
 
 }
 
+.toppingsSection {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+button {
+    display: flex;
+    margin: auto;
+}
 
 /* input {
     margin: 1rem;
