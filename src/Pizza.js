@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import * as yup from 'yup';
-
+import "./Pizza.css";
 
 export default function Pizza () {
     const [pizzaState, setPizzaState] = useState({
@@ -32,6 +32,7 @@ export default function Pizza () {
                 </label>
 
                 <label htmlFor="sauce">
+                    Select a sauce: 
                     <input id="pizza-sauce-original" type="radio"name="original" checked={sauce === "original"} onClick={() => sauceSelected('original')} className="sauceCheck"/>
                     Original Sauce
                     <input id="pizza-sauce-garlic" type="radio"name="garlic" checked={sauce === "garlic"} onClick={() => sauceSelected('garlic')} className="sauceCheck"/>
@@ -44,6 +45,7 @@ export default function Pizza () {
 
                 <label htmlFor="toppings">
                     Select at least one topping: 
+                    
                     <input id="pepperoni" type="checkbox"name="pepperoni"/>
                     Pepperoni
                     <input id="sausage" type="checkbox"name="sausage"/>
@@ -85,8 +87,9 @@ export default function Pizza () {
                     <input id="instructions" type="text" />
                 </label>
 
-                <button>Add to order</button>
+                
             </form>
+            <button>Add to order</button>
         </div>
     );
 };
