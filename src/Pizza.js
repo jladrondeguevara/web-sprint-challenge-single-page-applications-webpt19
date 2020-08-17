@@ -16,9 +16,30 @@ export default function Pizza () {
         sauce: ""
     })
 
+    const validateChange = event => {
+        yup.reach(formSchema, event.target.name).validate(event.target.value).then(inputIsValid => {
+        setErrors({
+            ...errors,
+            [event.target.name]: ""
+        })
+    }).catch(err => {
+            setErrors({
+                ...errors,
+                [event.target.name]: err.errors[0]
+            })
+        })
+    }
     
 
     const [sauce, sauceSelected] = useState("");
+
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+
+    const formSchema = yup.object().shape({
+        name: yup.string().required("Name is required!").min(2, "Name must be greater than two characters!"),
+        size: yup.string().matches(/(small|sarge)/, "Please select a size!")
+    })
+
 
     useEffect(() => {
         formSchema.isValid(pizzaState).then(isFormValid => {
