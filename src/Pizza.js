@@ -14,8 +14,18 @@ export default function Pizza () {
             <form>
                 <h1>Build your own pizza!</h1>
                 <label htmlFor="name">
-                    Name your pizza!
+                    Name your pizza: 
                     <input id="name" type="text" name="name"/>
+                </label>
+
+                <label htmlFor="size">
+                    Select your size: 
+                    <select id="size" name="size">
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>Extra Large</option>
+                    </select>
                 </label>
             </form>
         </div>
